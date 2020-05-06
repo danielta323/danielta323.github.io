@@ -18,4 +18,5 @@ div.tool-bar {
   width: 100%;
   height: 10%;
   background-color: pink;
+  touch-action: none;
 }
