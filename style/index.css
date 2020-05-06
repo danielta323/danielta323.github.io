@@ -11,7 +11,8 @@ iframe {
   touch-action: auto;
 }
 
-div.control-bar div.tool-bar {
+div.control-bar,
+div.tool-bar {
   width: 100%;
   height: 10%;
   background-color: pink;
