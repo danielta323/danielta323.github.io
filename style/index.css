@@ -9,6 +9,7 @@ iframe {
   width: 100%;
   height: 50%;
   touch-action: auto;
+  border: 0px;
   box-sizing: border-box;
 }
 
