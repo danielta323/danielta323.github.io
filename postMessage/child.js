@@ -23,4 +23,5 @@ window.addEventListener('load', () => {
   }
 
   window.addEventListener("message", receiveMessage, false);
+  console.log('ready to receive msg......');
 });

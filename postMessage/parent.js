@@ -12,4 +12,9 @@ window.addEventListener('load', () => {
       return;
   }
   window.addEventListener("message", receiveMessage, false);
+  document.getElementById('postMsgBtn').addEventListener('click', () => {
+    const inputValue = document.getElementById('msgInput').value;
+    console.log('inputValue', inputValue);
+    window.popup.postMessage(inputValue, 'https://danielta323.github.io');
+  });
 });
