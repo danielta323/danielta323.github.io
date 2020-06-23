@@ -18,8 +18,8 @@ window.addEventListener('load', () => {
       "hi there yourself!  the secret response is: rheeeeet!",
       event.origin
     );
-    console.log('event', event);
-    // display.innerText = event.detail.message;
+    console.log('post data...', event.data);
+    window.display.innerText = event.data;
   }
 
   window.addEventListener("message", receiveMessage, false);
