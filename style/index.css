@@ -20,3 +20,9 @@ div.tool-bar {
   background-color: pink;
   touch-action: none;
 }
+
+.zoom-test > div.control-bar,
+.zoom-test > div.tool-bar,
+.zoom-test > iframe {
+  height: 200px;
+}
