@@ -25,4 +25,5 @@ div.tool-bar {
 .zoom-test > div.tool-bar,
 .zoom-test > iframe {
   height: 200px;
+  display: block;
 }
