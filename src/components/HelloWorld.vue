@@ -21,7 +21,7 @@ export default {
   props: {
     msg: String
   },
-  data: () => {
+  data: function () {
     return {
       leftPosition: 10
     }
@@ -35,12 +35,9 @@ export default {
     renderCursor (event) {
       const {clientX} = event;
       const {left} = this.helloDomElement.getBoundingClientRect();
-      console.log(clientX, left);
-      console.log(this.leftPosition);
       this.leftPosition = ((clientX - left) / this.helloDomElement.clientWidth) * 100;
     },
     resetCursor() {
-      console.log('resetCursor');
       this.leftPosition = 10;
     }
   }
