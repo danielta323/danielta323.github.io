@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <HelloWorld class="hello-world" msg="Welcome to Your Vue.js App"/>
+    <Map></Map>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Map from './components/Map.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Map
   }
 }
 </script>
