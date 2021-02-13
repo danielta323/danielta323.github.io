@@ -18,7 +18,10 @@
     </div>
     <div class="controll">
       <button @click.stop="clearAll">全部清除</button>
-      <button @click.stop="overview">總覽</button>
+      <button @click.stop="overview">
+        <span v-if="!autoplaying">自動撥放</span>
+        <span v-else>按一下停止自動撥放</span>
+      </button>
     </div>
   </div>
 </template>
@@ -30,7 +33,7 @@ import Map from 'ol/Map';
 import Point from 'ol/geom/Point';
 import View from 'ol/View';
 import Overlay from 'ol/Overlay';
-import {Circle as CircleStyle, Stroke, Style} from 'ol/style';
+import {Circle as CircleStyle, Stroke, Style, Fill} from 'ol/style';
 import {OSM, Vector as VectorSource} from 'ol/source';
 import {Tile as TileLayer, Vector as VectorLayer} from 'ol/layer';
 import {easeOut} from 'ol/easing';
@@ -56,6 +59,8 @@ export default {
       markerName: '',
       focusingFeature: null,
       storedFeatures: [],
+      autoplaying: false,
+      autoplayIndex: 0
     }
   },
   computed: {
@@ -148,6 +153,18 @@ export default {
       });
       this.vector = new VectorLayer({
         source: this.source,
+        style: new Style({
+          image: new CircleStyle({ // add this
+            radius: 5,
+            fill: new Fill({
+              color: 'blue',
+            }),
+            stroke: new Stroke({
+              color: 'blue',
+              width: 5,
+            }),
+          }),
+        })
       });
       this.map.addLayer(this.vector);
       this.map.addOverlay(this.overlay);
@@ -187,7 +204,25 @@ export default {
       });
     },
     overview: function () {
-      console.log('overview');
+      if (this.autoplaying) {
+        console.log('cancel overview');
+        this.map.getView().cancelAnimations();
+        this.autoplaying = false;
+        return;
+      }
+      this.autoplaying = true;
+      this.autoplayIndex = 0;
+      var centerToNextFeature = () => {
+        if (!this.autoplaying) return;
+        const cFeature = this.storedFeatures[this.autoplayIndex++];
+        this.map.getView().animate({center: [cFeature.long, cFeature.lat]});
+        if (this.autoplayIndex >= this.storedFeatures.length) {
+          this.autoplaying = false;
+          return
+        }
+        window.setTimeout(centerToNextFeature, 3000);
+      }
+      centerToNextFeature();
     },
     addPoint: function () {
       console.log('addPoint', this.markerName, this.markerLong, this.markerLat);
