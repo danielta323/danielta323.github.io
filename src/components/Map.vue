@@ -23,6 +23,10 @@
         <span v-else>按一下停止自動撥放</span>
       </button>
     </div>
+    <div class="controll">
+      在地圖上任意空白點選  可以新增標記<br>點選現有標記可出現名稱與位置資訊<br>
+      點選自動播放  依照新增順序每三秒前往下一個標記位置
+    </div>
   </div>
 </template>
 
@@ -239,7 +243,7 @@ export default {
     deletePoint: function () {
       const deletingUuid = this.focusingFeature.get('uuid');
       const deletingIndex = this.storedFeatures.findIndex((feature) => {
-        return feature.uuid = deletingUuid;
+        return feature.uuid === deletingUuid;
       });
       if (deletingIndex === -1) return;
       this.storedFeatures.splice(deletingIndex, 1);
