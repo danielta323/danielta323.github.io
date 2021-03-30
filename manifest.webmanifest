@@ -11,6 +11,5 @@
   ],
   "name": "Awesome fox pictures",
   "short_name": "Foxes",
-  "start_url": "index.html",
-  "theme_color": "rgba(100, 100, 100, 0.5)"
+  "start_url": "index.html"
 }
