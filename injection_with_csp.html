@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https://*; child-src 'none';">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <script src="html_injection.js" defer></script>
+
+  <h1>HTML Injection test</h1>
+  <input id="injection" placeholder="try to inject something dangerous here...">
+  <div id="injection_display"></div>
+</body>
+</html>
