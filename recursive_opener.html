@@ -8,10 +8,29 @@
   <script src="recursive_opener.js" defer></script>
 
   <h1>The a target attribute</h1>
+  <div>
+    <button id="open_btn_self">
+      Click to window.open('https://danielta323.github.io/recursive_opener.html', '_self');
+    </button>
+  </div>
 
-  <button id="no_opener_btn">
-    Click to trigger window.open with opener......
-  </button>
+  <div>
+    <button id="open_btn_blank">
+      Click to window.open('https://danielta323.github.io/recursive_opener.html', '_blank');
+    </button>
+  </div>
+
+  <div>
+    <button id="open_btn_parent">
+      Click to window.open('https://danielta323.github.io/recursive_opener.html', '_parent');
+    </button>
+  </div>
+
+  <div>
+    <button id="open_btn_top">
+      Click to window.open('https://danielta323.github.io/recursive_opener.html', '_top');
+    </button>
+  </div>
 
 </body>
 </html>
