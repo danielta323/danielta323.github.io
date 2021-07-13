@@ -9,26 +9,32 @@
 
   <h1>The a target attribute</h1>
   <div>
-    <button id="open_btn_self">
+    <button class="opener" data-target="_self">
       Click to window.open('https://danielta323.github.io/recursive_opener.html', '_self');
     </button>
   </div>
 
   <div>
-    <button id="open_btn_blank">
+    <button class="opener" data-target="_blank">
       Click to window.open('https://danielta323.github.io/recursive_opener.html', '_blank');
     </button>
   </div>
 
   <div>
-    <button id="open_btn_parent">
+    <button class="opener" data-target="_parent">
       Click to window.open('https://danielta323.github.io/recursive_opener.html', '_parent');
     </button>
   </div>
 
   <div>
-    <button id="open_btn_top">
+    <button class="opener" data-target="_top">
       Click to window.open('https://danielta323.github.io/recursive_opener.html', '_top');
+    </button>
+  </div>
+
+  <div>
+    <button class="noopener" data-target="_blank">
+      Click to window.open('https://danielta323.github.io/recursive_opener.html', '_blank', 'noopener');
     </button>
   </div>
 
